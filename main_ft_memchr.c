@@ -1,12 +1,9 @@
-#include <stdio.h>
-#include <string.h>
-
 int main()
 {
-	int c = '8';
-    const char str[] = "kissa8";
-	size_t n = 8;
+	int c = 's';
+    const char str[] = "kissa";
+	size_t n = 1;
 
-    printf("memchr looks like this: %p\n", memchr(str, c, n));
-	printf("ft_memchr looks like this: %p\n", ft_memchr(str, c, n));
+    printf("memchr: %p\n", memchr(str, c, n));
+	printf("ft_memchr: %p\n", ft_memchr(str, c, n));
 }

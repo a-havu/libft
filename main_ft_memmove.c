@@ -1,17 +1,15 @@
-#include <stdio.h>
-#include <string.h>
-
 int main()
 {
-        //char dest[] = "xxxxxxxxx";
-		char src2[] = "abcdef";
-        //char dest2[] = "xxxxxxxxx";
-		char src[] = "abcdef";
+	char src[] = "Source";
+    char dest[] = "Destination";
+	char src2[] = "Source";
+    char dest2[] = "Destination";
 
-        size_t n = 15;
-		//printf("The difference between the addresses is: %ld\n", (dest - src));
-        memmove(src + 2, src, n);
-        printf("memmove looks like this: %s, %s\n", (src + 2), src);
-        ft_memmove(src2 + 2, src2, n);
-    	printf("ft_memmove looks like this: %s, %s\n", (src2 + 2), src2);
+    size_t n = 4;
+	printf("The difference between the addresses is: %ld\n", (dest - src));
+	printf("Before: %s, %s\n", dest, src);
+    memmove(dest, src, n);
+    printf("memmove looks like this: %s, %s\n", dest, src);
+    ft_memmove(dest2, src2, n);
+    printf("ft_memmove looks like this: %s, %s\n", dest2, src2);
 }

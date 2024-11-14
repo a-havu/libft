@@ -6,9 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:08:59 by ahavu             #+#    #+#             */
-/*   Updated: 2024/10/31 14:38:58 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/14 11:33:33 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlen(const char *s)
 {

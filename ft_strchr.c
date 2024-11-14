@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 10:20:18 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/01 14:07:33 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/14 10:57:28 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ char	*ft_strchr(const char *s, int c)
 	size_t	i;
 
 	i = 0;
+	if (c == '\0')
+		return ((char *)s + ft_strlen(s));
 	while (s[i])
 	{
-		if (s[i] == c)
-			return ((char *)s + i);
-		else
-			i++;
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i++;
 	}
-	s = NULL;
-	return ((char *)s);
+	return (NULL);
 }

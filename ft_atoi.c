@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 14:11:08 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/13 13:53:25 by ahavu            ###   ########.fr       */
+/*   Created: 2024/10/31 17:13:23 by ahavu             #+#    #+#             */
+/*   Updated: 2024/11/13 14:16:38 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_atoi(const char *nptr)
 {
-	unsigned char	*new_ptr;
-	size_t			nul;
-	size_t			i;
+	int		i;
+	long	result;
+	int		neg;
 
 	i = 0;
-	new_ptr = (unsigned char *)s;
-	nul = '\0';
-	while (i < n)
+	result = 0;
+	neg = 1;
+	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-')
 	{
-		new_ptr[i] = nul;
+		neg = -neg;
 		i++;
 	}
+	else if (nptr[i] == '+')
+		i++;
+	while (nptr[i] >= 48 && nptr[i] <= 57)
+	{
+		result = result * 10 + (nptr[i] - 48);
+		i++;
+	}
+	return (result * neg);
 }

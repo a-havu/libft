@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/01 10:10:37 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/01 11:43:05 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/13 16:29:03 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,15 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
+	size_t	product;
 
 	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	product = nmemb * size;
+	if ((product / size) != nmemb)
 		return (NULL);
-
+	ptr = malloc(product);
+	if (ptr)
+		ft_bzero(ptr, product);
 	return (ptr);
-}
-
-int main()
-{
-	size_t nmemb = 6;
-	size_t size = 
-	printf("This is calloc: %s")
-	printf("This is ft_calloc: %s")
 }

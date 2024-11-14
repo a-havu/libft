@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:03:44 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/01 16:03:19 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/14 12:08:48 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,11 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	new_s2 = (unsigned char *)s2;
 	if (n == 0)
 		return (0);
-	while (new_s1[i])
+	while (i < n)
 	{
 		if ((new_s1[i] - new_s2[i]) != 0 && i < n)
 			return (new_s1[i] - new_s2[i]);
 		i++;
 	}
-	if (new_s2[i] && i < n)
-		return (0 - new_s2[i]);
 	return (0);
 }

@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 14:11:08 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/13 13:53:25 by ahavu            ###   ########.fr       */
+/*   Created: 2024/11/07 09:25:56 by ahavu             #+#    #+#             */
+/*   Updated: 2024/11/07 09:38:27 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned char	*new_ptr;
-	size_t			nul;
-	size_t			i;
+	char	c;
 
-	i = 0;
-	new_ptr = (unsigned char *)s;
-	nul = '\0';
-	while (i < n)
+	if (n == -2147483648)
 	{
-		new_ptr[i] = nul;
-		i++;
+		write(fd, "-2147483648", 11);
+		return ;
 	}
+	if (n < 0)
+	{
+		n = -n;
+		c = '-';
+		write(fd, &c, 1);
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	c = (n % 10) + 48;
+	write (fd, &c, 1);
 }

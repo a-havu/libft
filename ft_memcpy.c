@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 11:09:30 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/14 17:36:49 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/13 14:28:10 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	i = 0;
 	temp_dest = (unsigned char *)dest;
 	temp_src = (unsigned char *)src;
+	if (!src && !dest && n)
+		return (NULL);
 	while (i < n)
 	{
 		temp_dest[i] = temp_src[i];

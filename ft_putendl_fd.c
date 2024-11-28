@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 09:20:52 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/13 11:16:47 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/27 10:23:48 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	int		i;
-	char	nl;
 
 	i = 0;
-	nl = '\n';
 	if (!s)
 		return ;
 	while (s[i])
@@ -26,5 +24,5 @@ void	ft_putendl_fd(char *s, int fd)
 		write(fd, &s[i], 1);
 		i++;
 	}
-	write(fd, &nl, 1);
+	write(fd, "\n", 1);
 }

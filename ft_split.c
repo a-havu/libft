@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:50:46 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/14 17:25:25 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/27 10:25:39 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static void	free_everything(char **str_array)
 	while (str_array[i])
 	{
 		free(str_array[i]);
+		str_array[i] = NULL;
 		i++;
 	}
 	free(str_array);

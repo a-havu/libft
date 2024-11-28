@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 09:25:56 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/07 09:38:27 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/25 12:14:38 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	char	c;
+	char			c;
+	unsigned int	ui;
 
-	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return ;
-	}
 	if (n < 0)
 	{
-		n = -n;
+		ui = -n;
 		c = '-';
 		write(fd, &c, 1);
 	}
-	if (n >= 10)
-		ft_putnbr_fd(n / 10, fd);
-	c = (n % 10) + 48;
+	else
+		ui = n;
+	if (ui / 10)
+		ft_putnbr_fd(ui / 10, fd);
+	c = (ui % 10) + '0';
 	write (fd, &c, 1);
 }

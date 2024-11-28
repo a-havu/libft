@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 12:51:26 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/14 11:32:21 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/25 12:43:19 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 		i++;
 	}
 	dst[i] = '\0';
-	i++;
 	return (ft_strlen(src));
 }

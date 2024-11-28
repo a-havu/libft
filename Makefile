@@ -6,7 +6,7 @@
 #    By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 10:20:46 by ahavu             #+#    #+#              #
-#    Updated: 2024/11/14 15:23:33 by ahavu            ###   ########.fr        #
+#    Updated: 2024/11/25 15:15:35 by ahavu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,8 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	ar -rcs $(NAME) $(OBJECTS)
 
-%.o: %.c 
-	$(CC) $(CFLAGS) -c -o $@ $<
+%.o: %.c $(NAME:.a=.h)
+	$(CC) $(CFLAGS) -c $<
 
 clean:
 	rm -f $(OBJECTS)

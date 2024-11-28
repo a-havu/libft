@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:13:05 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/14 12:11:10 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/25 16:31:40 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdint.h>
-# include <limits.h>
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

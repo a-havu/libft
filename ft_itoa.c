@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 10:21:21 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/13 17:14:39 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/27 09:58:57 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,70 +17,53 @@ static int	digit_counter(int n)
 	int	len;
 
 	len = 0;
-	if (n <= 0)
-		len++;
-	while (n)
-	{
-		len++;
-		n = n / 10;
-	}
-	return (len);
-}
-
-static char	*edgecases(char *str, int n)
-{
-	if (n == INT_MIN)
-	{
-		str = ft_calloc(12, sizeof(char));
-		if (str)
-		{
-			ft_strlcpy(str, "-2147483648", 12);
-			return (str);
-		}
-	}
-	else if (n == 0)
-	{
-		str = ft_calloc(2, sizeof(char));
-		if (str)
-		{
-			str[0] = '0';
-			str[1] = '\0';
-			return (str);
-		}
-	}
-	return (NULL);
-}
-
-static char	*ft_itoa_2(int n, char *str)
-{
-	int		len;
-
-	len = digit_counter(n);
 	if (n < 0)
 		n = -n;
 	while (n)
 	{
-		str[--len] = (n % 10) + 48;
+		len++;
 		n /= 10;
 	}
+	return (len);
+}
+
+static char	*zero(void)
+{
+	char	*str;
+
+	str = ft_calloc(2, sizeof(char));
+	if (!str)
+		return (NULL);
+	str[0] = '0';
+	str[1] = '\0';
 	return (str);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
+	char			*str;
+	unsigned int	ui;
+	int				digit_count;
 
-	str = NULL;
-	if (n == INT_MIN || n == 0)
+	if (n == 0)
+		return (zero());
+	digit_count = digit_counter(n);
+	if (n < 0)
 	{
-		str = edgecases(str, n);
-		return (str);
+		ui = n * -1;
+		digit_count++;
 	}
-	str = ft_calloc(digit_counter(n) + 1, sizeof(char));
+	else
+		ui = n;
+	str = ft_calloc(digit_count + 1, sizeof(char));
 	if (!str)
 		return (NULL);
-	str = ft_itoa_2(n, str);
-	if (n < 0 && str)
+	if (n < 0)
 		str[0] = '-';
+	while (ui)
+	{
+		str[--digit_count] = (ui % 10) + '0';
+		ui /= 10;
+	}
 	return (str);
 }

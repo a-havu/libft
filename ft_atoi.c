@@ -6,11 +6,28 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 17:13:23 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/13 14:16:38 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/25 16:16:28 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_atoi_loop(long result, int neg, const char *nptr, int i)
+{
+	long	prev_result;
+
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		prev_result = result;
+		result = result * 10 + (nptr[i] - '0');
+		if (prev_result > result && neg == 1)
+			return (-1);
+		if (prev_result > (result + 1) && neg == -1)
+			return (0);
+		i++;
+	}
+	return (result * neg);
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -30,10 +47,5 @@ int	ft_atoi(const char *nptr)
 	}
 	else if (nptr[i] == '+')
 		i++;
-	while (nptr[i] >= 48 && nptr[i] <= 57)
-	{
-		result = result * 10 + (nptr[i] - 48);
-		i++;
-	}
-	return (result * neg);
+	return (ft_atoi_loop(result, neg, nptr, i));
 }

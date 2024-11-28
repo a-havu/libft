@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 13:16:06 by ahavu             #+#    #+#             */
-/*   Updated: 2024/11/14 11:02:17 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/11/25 12:35:17 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,18 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*new_str;
-	int		total_len;
+	size_t	total_len;
 	int		i;
 	int		k;
-	int		len_s1;
 
-	i = 0;
-	k = 0;
 	if (!s1 || !s2)
 		return (NULL);
-	len_s1 = ft_strlen(s1);
-	total_len = len_s1 + ft_strlen(s2);
+	i = 0;
+	k = 0;
+	total_len = ft_strlen(s1) + ft_strlen(s2);
 	new_str = ft_calloc((total_len + 1), sizeof(char));
-	if (new_str == NULL)
-		return (0);
+	if (!new_str)
+		return (NULL);
 	while (s1[i])
 	{
 		new_str[i] = s1[i];

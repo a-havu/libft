@@ -1,4 +1,4 @@
-My first 42 school project, a library of functions that we will be using in future projects.
+My first 42 school project, a library of functions that will be used in future projects.
 
 Many of the functions in the Libft subject are recreations of existing libc functions.
 

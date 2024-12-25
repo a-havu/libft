@@ -6,7 +6,7 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:13:05 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:08:52 by ahavu            ###   ########.fr       */
+/*   Updated: 2024/12/25 09:18:14 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct s_list
+typedef struct  s_list
 {
     void *content;
     struct s_list *next;
-} t_list;
+}               t_list;
 
 /** BOOLEAN FUNCTIONS **/
 int		ft_isalnum(int c);

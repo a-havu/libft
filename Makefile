@@ -6,39 +6,63 @@
 #    By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 10:20:46 by ahavu             #+#    #+#              #
-#    Updated: 2024/12/21 09:10:12 by ahavu            ###   ########.fr        #
+#    Updated: 2025/01/08 14:26:17 by ahavu            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-SOURCES = 	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
-			ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c \
-			ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c \
-			ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c \
-			ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
-			ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
-			ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
-			ft_lstadd_front.c ft_lstnew.c ft_lstsize.c ft_lstlast.c \
-			ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
-			ft_lstmap.c
+NAME = libft_plus.a
+LIBFT_PATH = libft_src/
+PRINTF_PATH = ft_printf/
 
-OBJECTS = $(SOURCES:.c=.o)
+LIBFT_SRC = $(LIBFT_PATH)ft_atoi.c $(LIBFT_PATH)ft_bzero.c \
+			$(LIBFT_PATH)ft_calloc.c $(LIBFT_PATH)ft_isalnum.c \
+			$(LIBFT_PATH)ft_isalpha.c $(LIBFT_PATH)ft_isascii.c \
+			$(LIBFT_PATH)ft_isdigit.c $(LIBFT_PATH)ft_isprint.c \
+			$(LIBFT_PATH)ft_itoa.c $(LIBFT_PATH)ft_memchr.c \
+			$(LIBFT_PATH)ft_memcmp.c $(LIBFT_PATH)ft_memcpy.c \
+			$(LIBFT_PATH)ft_memmove.c $(LIBFT_PATH)ft_memset.c \
+			$(LIBFT_PATH)ft_putchar_fd.c $(LIBFT_PATH)ft_putendl_fd.c \
+			$(LIBFT_PATH)ft_putnbr_fd.c $(LIBFT_PATH)ft_putstr_fd.c \
+			$(LIBFT_PATH)ft_split.c $(LIBFT_PATH)ft_strchr.c \
+			$(LIBFT_PATH)ft_strdup.c $(LIBFT_PATH)ft_striteri.c \
+			$(LIBFT_PATH)ft_strjoin.c $(LIBFT_PATH)ft_strlcat.c \
+			$(LIBFT_PATH)ft_strlcpy.c $(LIBFT_PATH)ft_strlen.c \
+			$(LIBFT_PATH)ft_strmapi.c $(LIBFT_PATH)ft_strncmp.c \
+			$(LIBFT_PATH)ft_strnstr.c $(LIBFT_PATH)ft_strrchr.c \
+			$(LIBFT_PATH)ft_strtrim.c $(LIBFT_PATH)ft_substr.c \
+			$(LIBFT_PATH)ft_tolower.c $(LIBFT_PATH)ft_toupper.c \
+			$(LIBFT_PATH)ft_lstadd_front.c $(LIBFT_PATH)ft_lstnew.c \
+			$(LIBFT_PATH)ft_lstsize.c $(LIBFT_PATH)ft_lstlast.c \
+			$(LIBFT_PATH)ft_lstadd_back.c $(LIBFT_PATH)ft_lstdelone.c \
+			$(LIBFT_PATH)ft_lstclear.c $(LIBFT_PATH)ft_lstiter.c \
+			$(LIBFT_PATH)ft_lstmap.c $(LIBFT_PATH)get_next_line.c
 
-HEADER = $(NAME.a=.h)
+PRINTF_SRC = 	$(PRINTF_PATH)ft_printf.c $(PRINTF_PATH)print_char.c \
+				$(PRINTF_PATH)print_hex.c $(PRINTF_PATH)print_nbr.c \
+				$(PRINTF_PATH)print_ptr.c $(PRINTF_PATH)print_str.c \
+				$(PRINTF_PATH)print_uint.c
+
+LIBFT_OBJECTS = $(LIBFT_SRC:.c=.o)
+PRINTF_OBJECTS = $(PRINTF_SRC:.c=.o)
+
+HEADER = $(LIBFT_PATH)libft.h $(PRINTF_PATH)libftprintf.h
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS)
-	@ar -rcs $(NAME) $(OBJECTS)
+$(NAME): $(LIBFT_OBJECTS) $(PRINTF_OBJECTS)
+	@ar -rcs $(NAME) $(LIBFT_OBJECTS) $(PRINTF_OBJECTS)
 
-%.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) -c $<
+$(LIBFT_PATH)%.o: $(LIBFT_PATH)%.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
+	
+$(PRINTF_PATH)%.o: $(PRINTF_PATH)%.c $(HEADER)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJECTS)
+	@rm -f $(LIBFT_OBJECTS) $(PRINTF_OBJECTS)
 
 fclean: clean
 	@rm -f $(NAME)

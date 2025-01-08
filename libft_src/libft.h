@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   libft.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:13:05 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/25 09:18:14 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/02 14:44:04 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 10
+# endif
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -76,5 +79,8 @@ t_list  *ft_lstlast(t_list *lst);
 t_list  *ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list  *ft_lstnew(void *content);
 int     ft_lstsize(t_list *lst);
+
+/**GET NEXT LINE **/
+char	*get_next_line(int fd);
 
 #endif

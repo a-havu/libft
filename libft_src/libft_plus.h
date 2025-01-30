@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                   :+:      :+:    :+:   */
+/*   libft_plus.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -63,15 +63,16 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 
 /** MANIPULATIONS **/
-int		ft_atoi(const char *nptr);
-void	ft_bzero(void *s, size_t n);
-char	*ft_itoa(int n);
-int		ft_tolower(int c);
-int		ft_toupper(int c);
+int		    ft_atoi(const char *nptr);
+long long   ft_atoi_longlong(const char *nptr);
+void	    ft_bzero(void *s, size_t n);
+char	    *ft_itoa(int n);
+int		    ft_tolower(int c);
+int		    ft_toupper(int c);
 
 /** LINKED LIST FUNCTIONS **/
-void    ft_lstadd_back(t_list **lst, t_list *new);
-void    ft_lstadd_front(t_list **lst, t_list *new);
+void    ft_lstadd_back(t_list **lst, t_list *new_node);
+void    ft_lstadd_front(t_list **lst, t_list *new_node);
 void    ft_lstclear(t_list **lst, void (*del)(void*));
 void    ft_lstdelone(t_list *lst, void (*del)(void*));
 void    ft_lstiter(t_list *lst, void (*f)(void *));

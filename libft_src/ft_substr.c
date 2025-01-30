@@ -6,11 +6,11 @@
 /*   By: ahavu <ahavu@student.hive.fi>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 11:49:34 by ahavu             #+#    #+#             */
-/*   Updated: 2024/12/21 09:55:59 by ahavu            ###   ########.fr       */
+/*   Updated: 2025/01/09 16:39:32 by ahavu            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_plus.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
